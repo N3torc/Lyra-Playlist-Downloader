@@ -1,28 +1,45 @@
 # Lyra → MP3 Downloader
 
-This is a Python tool to download all songs from a Lyra Music playlist and convert them into MP3 files. The downloaded songs are organized in a folder named after the playlist. No administrator permissions are required.
+Download songs from Lyra Music playlists and convert them to MP3. Playlist tracks are automatically organized in a folder named after the playlist. No administrator permissions are required.
 
 ---
 
 ## Features
 
-- Fetch playlists from Lyra Music
-- Automatically organize songs in playlist-named folders
-- Search YouTube for **official audio** tracks
-- Download and convert tracks to MP3 using `yt-dlp` and `ffmpeg`
-- Parallel YouTube searching for faster results
-- Built-in debug console for API requests and track info
+- Fetch playlists directly from Lyra Music
+- Search YouTube for official audio automatically
+- Download and convert songs to MP3 using `yt-dlp` and `ffmpeg`
+- Organize downloads in playlist-named folders
+- Debug console for monitoring requests and track info
+- Parallel YouTube search for faster results
 
 ---
 
-## Requirements
+## How It Works
 
-- Python 3.8+
-- `yt-dlp` Python package
-- `requests` Python package
-- **FFmpeg** installed and available in system PATH
+1. **Fetch Playlist Data:**  
+   The tool takes a Lyra playlist URL and uses Lyra’s public API to get the playlist metadata and track list.
 
-Install Python packages:
+2. **Extract Track Info:**  
+   For each track, it gets the **song name** and **artist**.  
 
+3. **Search YouTube:**  
+   It automatically searches YouTube for the **official audio version** using the track’s name and artist. The tool prioritizes official channels and audio releases.
+
+4. **Download MP3:**  
+   Using `yt-dlp` and `ffmpeg`, the tool downloads the track and converts it to an MP3 file. Each song is saved in a folder named after the playlist.
+
+5. **Parallel Processing:**  
+   Multiple YouTube searches are performed in parallel to speed up large playlists. Downloads are processed sequentially but can be enhanced for full parallelism if needed.
+
+6. **Debug Console:**  
+   A built-in console logs all API calls, track info, YouTube links, and errors for full transparency.
+
+---
+
+## Installation
+
+### 1. Clone the repository
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/yourusername/LyraDownloader.git
+cd LyraDownloader
