@@ -1,4 +1,4 @@
-# Lyra → MP3 Downloader (Safe Version)
+# Lyra → MP3 Downloader
 
 This is a Python tool to download all songs from a Lyra Music playlist and convert them into MP3 files. The downloaded songs are organized in a folder named after the playlist. No administrator permissions are required.
 
